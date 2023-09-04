@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const __featuresRouter = require("./v1/__features/__features.route");
+const userRouter = require("./v1/user/user.route");
 const {
   globalErrorHandler,
 } = require("./middleware/globalErrorHandler/globalErrorHandler");
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 
 // __features route
 app.use("/api/v1/__features", __featuresRouter);
+app.use("/api/v1/user", userRouter);
 
 // Global Error Handler
 app.use(globalErrorHandler);
